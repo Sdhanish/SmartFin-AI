@@ -40,7 +40,6 @@ if (scannedData && !scanReceiptLoading) {
     <div>
      <Input type="file" ref={fileInputRef}
      className="hidden" accept="image/*" 
-     capture="environment"  // Enables camera option
      onChange={(e)=>{
       const file=e.target.files?.[0];
       if(file) handleReceiptscan(file);
