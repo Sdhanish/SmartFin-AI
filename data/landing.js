@@ -5,6 +5,7 @@ import {
   CreditCard,
   Globe,
   Zap,
+  Wallet,
 } from "lucide-react";
 
 // Stats Data
@@ -27,41 +28,45 @@ export const statsData = [
   },
 ];
 
-// Features Data
 export const featuresData = [
   {
     icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
     title: "Advanced Analytics",
     description:
-      "Get detailed insights into your spending patterns with AI-powered analytics",
+      "Gain detailed insights into your spending patterns with AI-powered analytics.",
   },
   {
     icon: <Receipt className="h-8 w-8 text-blue-600" />,
-    title: "Smart Receipt Scanner",
+    title: "AI Receipt Scanning",
     description:
-      "Extract data automatically from receipts using advanced AI technology",
+      "Automatically extract data from receipts using advanced AI technology.",
   },
   {
     icon: <PieChart className="h-8 w-8 text-blue-600" />,
-    title: "Budget Planning",
-    description: "Create and manage budgets with intelligent recommendations",
+    title: "Smart Categorization",
+    description:
+      "Smart categorization for real-time insights and strategic financial decisions.",
   },
   {
     icon: <CreditCard className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Account Support",
-    description: "Manage multiple accounts and credit cards in one place",
+    title: "Multiple Accounts",
+    description:
+      "Create and manage multiple financial accounts, perform transactions, and track activity.",
   },
   {
-    icon: <Globe className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Currency",
-    description: "Support for multiple currencies with real-time conversion",
+    icon: <Wallet className="h-8 w-8 text-blue-600" />,
+    title: "Wallet/Savings Facility",
+    description:
+      "Manage multiple digital wallets or savings accounts, transfer funds, and monitor balances.",
   },
   {
     icon: <Zap className="h-8 w-8 text-blue-600" />,
     title: "Automated Insights",
-    description: "Get automated financial insights and recommendations",
+    description:
+      "Receive AI-driven financial insights based on your spending and savings data.",
   },
 ];
+
 
 // How It Works Data
 export const howItWorksData = [

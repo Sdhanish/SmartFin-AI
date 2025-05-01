@@ -19,7 +19,7 @@ import { format } from "date-fns";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 import React, { useState } from "react";
-import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
 
 const COLORS = [
@@ -84,26 +84,68 @@ const DashboardOverview = ({ accounts, transactions }) => {
         </CardHeader>
         <CardContent className="p-0 pb-5">
           {pieChartData.length === 0 ? (
-            <p className="text-xenter text-muted-foreground py-4">
+            <p className="text-center text-muted-foreground py-4">
               No expenses this month
             </p>
           ) : (
-            <div>
-              <ResponsiveContainer width="100%" height={300}>
-                <PieChart>
-                  <Pie data={pieChartData} cx="50%" cy="50%" outerRadius={80} 
+            <>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={pieChartData}
+                  cx="60%"
+                  cy="50%"
+                  outerRadius={100}
                   dataKey="value"
                   fill="#8884d8"
-                  label={({name,value})=>`${name} : ${value.toFixed(2)}`}
-                  >
-                    {pieChartData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                </PieChart>
-                <Legend/>
-              </ResponsiveContainer>
-            </div>
+                  labelLine={false}
+                  label={false}
+                >
+                  {pieChartData.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip
+                  formatter={(value, name) => [`₹${value.toFixed(2)}`, name.charAt(0).toUpperCase() + name.slice(1)]}
+                />
+                <Legend
+                  verticalAlign="middle"
+                  layout="vertical"
+                  align="left"
+                  wrapperStyle={{
+                    marginLeft: 20,
+                    fontSize: "18px",
+                    lineHeight: "2",
+                  }}
+                  formatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          
+            {(pieChartData.length > 6 || pieChartData.some(item => item.value > 6000)) && (
+  <div className="px-4">
+    <p className="text-base text-muted-foreground text-justify">
+      You’re spending quite a bit on{" "}
+      <span className="font-semibold">
+        {pieChartData.reduce((max, item) =>
+          item.value > max.value ? item : max
+        ).name.charAt(0).toUpperCase() + pieChartData.reduce((max, item) =>
+          item.value > max.value ? item : max
+        ).name.slice(1)}
+      </span>{" "}
+      expense this month. Consider reviewing this category to stay on track.
+    </p>
+  </div>
+)}
+
+
+
+
+          </>
+          
           )}
         </CardContent>
       </Card>

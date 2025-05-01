@@ -9,13 +9,13 @@ import { BarLoader } from "react-spinners";
 export const dynamic = "force-dynamic";
 
 const Loader = () => (
-  <BarLoader className="mt-4" width={"100%"} color="#9333ea" />
+  <BarLoader className="mt-2" width={"100%"} color="#9333ea" />
 );
 
 const AccountInfo = ({ account }) => (
-  <div className="flex gap-4 items-end justify-between">
+  <div className="flex gap-4 justify-between">
     <div>
-      <h1 className="text-5xl sm:text-6xl font-bold tracking-tight gradient-title capitalize">
+      <h1 className="text-4xl sm:text-4xl font-bold tracking-wider gradient-title capitalize">
         {account.name}
       </h1>
       <p className="text-muted-foreground">

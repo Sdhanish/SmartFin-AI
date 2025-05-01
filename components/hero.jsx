@@ -69,8 +69,8 @@ const HeroSection = () => {
           <Link href={"/dashboard"}>
             <Button size="lg" className="px-8">Get Started</Button>
           </Link>
-          <Link href={"/demo"}>
-            <Button size="lg" className="px-8" variant="outline">Watch Demo</Button>
+          <Link href={"/about"}>
+            <Button size="lg" className="px-8" variant="outline">Learn More</Button>
           </Link>
         </motion.div>
 

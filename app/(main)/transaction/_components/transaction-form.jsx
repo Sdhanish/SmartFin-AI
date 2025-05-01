@@ -22,14 +22,17 @@ import { Calendar } from "@/components/ui/calendar";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
 import { CalendarIcon, Loader2 } from "lucide-react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Switch } from "@/components/ui/switch";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import ReceiptScanner from "./receipt-scanner";
 
+
 const AddTransactionForm = (props) => {
+  const [insufficientBalance, setInsufficientBalance] = useState(false);
+
   // Safely destructure with defaults
   const {
     accounts = [],
@@ -85,6 +88,28 @@ const AddTransactionForm = (props) => {
   const type = watch("type");
   const isRecurring = watch("isRecurring");
   const date = watch("date");
+
+
+
+  const accountId = watch("accountId");
+const amount = watch("amount");
+
+useEffect(() => {
+  if (type === "EXPENSE" && accountId && amount) {
+    const selectedAccount = accounts.find((acc) => acc.id === accountId);
+    const enteredAmount = parseFloat(amount);
+
+    if (selectedAccount && enteredAmount > parseFloat(selectedAccount.balance)) {
+      setInsufficientBalance(true);
+    } else {
+      setInsufficientBalance(false);
+    }
+  } else {
+    setInsufficientBalance(false);
+  }
+}, [accountId, amount, type, accounts]);
+
+
 
   const filteredCategories = categories.filter(
     (category) => category.type == type
@@ -299,8 +324,8 @@ const AddTransactionForm = (props) => {
           )}
         </div>
       )}
-
-      <div className="flex gap-4">
+<div className="flex flex-col gap-2">
+<div className="flex gap-4">
         <Button
           type="button"
           variant="outline"
@@ -309,7 +334,7 @@ const AddTransactionForm = (props) => {
         >
           Cancel
         </Button>
-        <Button type="submit" className="w-full" disabled={transactionLoading}>
+        <Button type="submit" className="w-full" disabled={transactionLoading || insufficientBalance}>
           {transactionLoading ? (
             <>
             {""}
@@ -322,7 +347,19 @@ const AddTransactionForm = (props) => {
             "Create Transaction"
           )}
         </Button>
+   
+
+
       </div>
+      <div className="w-full">
+      {insufficientBalance && (
+  <p className="text-sm text-red-500 text-center mt-2">
+    Insufficient balance. Please choose a different account or reduce the amount.
+  </p>
+)}
+      </div>
+</div>
+      
     </form>
   );
 };

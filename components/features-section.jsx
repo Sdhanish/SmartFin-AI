@@ -45,7 +45,7 @@ const FeaturesSection = () => {
             >
               <Card
                 className="
-                  p-6 
+                  p-2 
                   dark:bg-gray-900 
                   border 
                   border-blue-300 
@@ -59,7 +59,7 @@ const FeaturesSection = () => {
                   rounded-2xl
                 "
               >
-                <CardContent className="space-y-4 pt-4">
+                <CardContent className="space-y-4 pt-4 text-start">
                   {feature.icon}
                   <h3 className="text-xl font-semibold">{feature.title}</h3>
                   <h3 className="text-gray-600 dark:text-gray-300">{feature.description}</h3>
