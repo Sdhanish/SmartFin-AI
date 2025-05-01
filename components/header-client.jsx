@@ -36,10 +36,10 @@ const HeaderClient = () => {
     width={70}
     height={70}
     priority
-    className="rounded-full border-gray-500 outline-gray-500 object-cover w-10 h-10 sm:w-[70px] sm:h-[70px]"
+    className="rounded-full border-gray-500 outline-gray-500 object-cover w-8 h-8 sm:w-[70px] sm:h-[70px]"
   />
 
-  <span className="text-blue-500 tracking-[1px] mt-1 text-lg sm:text-3xl dark:text-blue-300 font-sans font-extrabold">
+  <span className="text-blue-500 tracking-[1px] mt-1 text-sm sm:text-3xl dark:text-blue-300 font-sans font-extrabold">
     SmartFin <span className="gradient-title">AI</span>
   </span>
 </Link>
@@ -48,7 +48,7 @@ const HeaderClient = () => {
 
        
         
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center space-x-2 sm:space-x-4">
     <SignedIn>
       <Link href={"/dashboard"} className="text-gray-600 
       dark:text-white 
@@ -73,7 +73,7 @@ const HeaderClient = () => {
         <SignedIn>
           <UserButton appearance={{
             elements:{
-              avatarBox: "w-10 h-10"
+              avatarBox: "w-8 h-8 sm:w-10 sm:h-10"
             }
           }} />
         </SignedIn>
@@ -81,7 +81,7 @@ const HeaderClient = () => {
   variant="ghost"
   size="icon"
   onClick={toggleTheme}
-  className="transition-none w-10 h-10" // keep the button itself still
+  className="transition-none  w-8 h-8 sm:w-10 sm:h-10" // keep the button itself still
 >
   <span
    className={`inline-block transform transition-transform duration-300 ease-in-out ${
@@ -90,9 +90,9 @@ const HeaderClient = () => {
   
   >
     {isDark ? (
-      <Sun className="text-white w-10 h-10" />
+      <Sun className="text-white w-5 h-5 sm:w-6 sm:h-6" />
     ) : (
-      <Moon className="text-black w-10 h-10" />
+      <Moon className="text-black w-5 h-5 sm:w-6 sm:h-6" />
     )}
   </span>
 </Button>

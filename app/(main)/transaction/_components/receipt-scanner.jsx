@@ -39,7 +39,7 @@ if (scannedData && !scanReceiptLoading) {
   return (
     <div>
      <Input type="file" ref={fileInputRef}
-     className="hidden" accept="image/" capture="environment"
+     className="hidden" accept="image/*" 
      onChange={(e)=>{
       const file=e.target.files?.[0];
       if(file) handleReceiptscan(file);
