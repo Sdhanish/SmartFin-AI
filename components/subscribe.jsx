@@ -12,15 +12,19 @@ const Subscribe = () => {
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubscribe = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation
+  
     if (!email) return toast.error("Please enter an email.");
-
+    
+    if (!emailRegex.test(email)) return toast.error("Please enter a valid email address.");
+  
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email }), // Send the entered email as 'to' address
       });
-
+  
       if (res.ok) {
         toast.success("Thank you for subscribing! You’ll get regular updates.");
         setSubscribed(true);
@@ -32,6 +36,7 @@ const Subscribe = () => {
       toast.error("Something went wrong. Try again later.");
     }
   };
+  
 
   return (
     <motion.section 

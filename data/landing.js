@@ -45,7 +45,7 @@ export const featuresData = [
     icon: <PieChart className="h-8 w-8 text-blue-600" />,
     title: "Smart Categorization",
     description:
-      "Smart categorization for real-time insights and strategic financial decisions.",
+      "Smart categorization for real-time insights and strategic future financial planning.",
   },
   {
     icon: <CreditCard className="h-8 w-8 text-blue-600" />,
@@ -63,7 +63,7 @@ export const featuresData = [
     icon: <Zap className="h-8 w-8 text-blue-600" />,
     title: "Automated Insights",
     description:
-      "Receive AI-driven financial insights based on your spending and savings data.",
+      "Receive AI-driven financial insights based on your spending and savings data and make decisions.",
   },
 ];
 

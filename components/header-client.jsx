@@ -29,31 +29,22 @@ const HeaderClient = () => {
     <div>
        <div className="fixed top-0 w-full bg-white backdrop-blur-md z-50  dark:text-white dark:bg-[#0a0b0e] dark:border-none">
       <nav className="container mx-auto px-0 py-2 flex items-center justify-between dark:text-white">
-      <Link href="/" className="flex items-center gap-3">
-  {isDark ? (
-    <Image
-      src="/smartfinDarker.jpg"
-      alt="Smartfin AI Dark"
-      width={70}
-      height={70}
-      priority
-      className="rounded-full border-gray-500 outline-gray-500 object-cover"
-    />
-  ) : (
-    <Image
-      src="/smartfin.jpg" 
-      alt="Smartfin AI Light"
-      width={70}
-      height={70}
-      priority
-      className="rounded-full border-gray-500 outline-gray-500 object-cover"
-    />
-  )}
+      <Link href="/" className="flex items-center gap-2 sm:gap-3">
+  <Image
+    src={isDark ? "/smartfinDarker.jpg" : "/smartfin.jpg"}
+    alt="Smartfin AI Logo"
+    width={70}
+    height={70}
+    priority
+    className="rounded-full border-gray-500 outline-gray-500 object-cover w-10 h-10 sm:w-[70px] sm:h-[70px]"
+  />
 
-  <span className="text-blue-500  tracking-[2] mt-2 text-3xl dark:text-blue-300 font-sans font-extrabold ">
+  <span className="text-blue-500 tracking-[1px] mt-1 text-lg sm:text-3xl dark:text-blue-300 font-sans font-extrabold">
     SmartFin <span className="gradient-title">AI</span>
   </span>
 </Link>
+
+
 
        
         
