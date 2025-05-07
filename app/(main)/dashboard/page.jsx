@@ -26,7 +26,7 @@ async function DashboardPage() {
   return (
     <div className="space-y-8">
       <div className="flex justify-between items-center">
-        <h1 className="text-6xl font-bold gradient-title mb-5">Dashboard</h1>
+        <h1 className="text-5xl font-bold gradient-title">Dashboard</h1>
       </div>
 
       

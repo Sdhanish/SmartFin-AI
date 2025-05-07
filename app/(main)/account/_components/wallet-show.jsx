@@ -83,7 +83,7 @@ const WalletPopover = ({ accountId }) => {
         <Button className="mt-5 flex flex-row" variant="ghost">
           <Wallet2 width={50} height={50} className="text-blue-800" />
           <h2 className="font-semibold text-gray-600 dark:text-white ml-2">
-            Your Wallet
+            Your Wallet / Savings
           </h2>
         </Button>
       </PopoverTrigger>
@@ -92,7 +92,7 @@ const WalletPopover = ({ accountId }) => {
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-lg font-semibold flex flex-row gap-2">
             <Wallet2 className="text-gray-600" />
-            Your Wallet
+            Your Savings
           </h2>
           <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
             <X className="w-4 h-4" />
